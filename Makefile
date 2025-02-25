@@ -2,9 +2,9 @@
 ####################### Makefile Template ##############################
 ########################################################################
 # Student settings
-NAME = YOURNAME
-SID = YOURSID
-EMAIL = YOURUTAEMAIL
+NAME = Milan Singh
+SID = 1001888297
+EMAIL = mxs8297@mavs.uta.edu
 SEMESTER = SPRING2025
 PROJECT=PROJ03
  
