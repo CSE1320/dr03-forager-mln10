@@ -6,7 +6,7 @@ export default function DashboardPage() {
   return (
     <div className="page">
       <h1>Dashboard Page</h1>
-      <Mushroom mushroom={mushroom1}></Mushroom>
+      <Mushroom mushroom={mushroom1} isCompared={true}></Mushroom>
       <NavBar />
     </div>
   );

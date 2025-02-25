@@ -11,8 +11,8 @@ const warningMessage = {
 };
 
 const mushroom1 = {
-    mushroomName: "warning",
-    isEdible: true,
+    mushroomName: "Death cap",
+    isEdible: false,
     matchRate: "99%",
     imgSrc: "assets/image.jpg"
 };
