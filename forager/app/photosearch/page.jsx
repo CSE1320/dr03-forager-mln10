@@ -1,10 +1,12 @@
 import NavBar from '../../components/NavBar';
-
+import Link from 'next/link';
 export default function PhotoSearchPage() {
   return (
-    <div className="page">
-      <h1>Photo Search Page</h1>
-      <NavBar />
+    <div className="page relative">
+      <Link className=' w-full absolute top-10 left-5 z-50' href="/dashboard" passHref>
+        <div className=' inset-0 opacity-0 w-full '>HIdden back button</div>
+      </Link>
+      <img className='relative w-full h-full z-40' src='assets/cameraScreen.png' alt='Picture that shows a camera view'></img>
     </div>
   );
 }
