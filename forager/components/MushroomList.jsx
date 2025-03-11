@@ -1,6 +1,6 @@
 import React from 'react';
-;
 import Mushroom from '@/components/Mushroom';
+
 const MushroomList = ({isCompare, isDashboard, mushList}) => {
     const mushroomList = mushList
     const doCompare = isDashboard ? false:true
@@ -9,17 +9,17 @@ const MushroomList = ({isCompare, isDashboard, mushList}) => {
         cardRatio = "w-[27%] h-[27%]"
     }
     else if(doCompare){
-        cardRatio = "w-1/2 h-1/2"
+        cardRatio = "w-[40%] h-[45%]"
     }
     return (
-        <div>
-            <ul className="flex flex-wrap "> 
+        <div className='ml-4'>
+            <ul className="inline-flex flex-wrap w-full gap-x-6 justify-start"> 
                 {
                     mushroomList.map((mushroom)=>{
                     return (
-                        <li className={`${cardRatio} m-3`  }>
-                            <Mushroom mushroom={mushroom} isCompared={doCompare} key={mushroom.id} ></Mushroom>
-                        </li>)
+                        <li key={mushroom.id} className={`${cardRatio} `  }>
+                            <Mushroom mushroom={mushroom} isCompared={isCompare} isSimilarMatch={doCompare} key={mushroom.id}   ></Mushroom>
+                         </li>)
                     })
                 }
             </ul>

@@ -6,6 +6,7 @@ import styles from '../styles/NavBar.module.css';
 import '../styles/globals.css'; 
 import { useState } from 'react';
 
+
 export default function NavBar() {
   const defaultIconColor = "#FFFFFF"
   const selectIconColor = "#b0e2cc"
@@ -13,6 +14,7 @@ export default function NavBar() {
   const iconClick = (iconName)=>{
    setSelectedIcon(iconName) 
   }
+ 
   return (
     <div className={` ${styles.navbar} customGreen customNavbarContainer ` }>
         <div className='flex w-full flex-col items-center'>

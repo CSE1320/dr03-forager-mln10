@@ -1,13 +1,13 @@
 "use client"
 import NavBar from '../../components/NavBar'; // Adjust the path as necessary
 import MushroomList from '@/components/MushroomList';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../../styles/globals.css'; 
 import Search from '@/components/Search';
 import {FaFilter } from 'react-icons/fa'
 import FilterSettings from '@/components/FilterSettings';
 import PillList from '@/components/PillList';
-import { filterOptionList, mushList} from '@/data/development.jsx'
+import { mushList} from '@/data/development.jsx'
 
 export default function DashboardPage() {
   const[isModal, setModal] = useState(false)
@@ -26,7 +26,6 @@ export default function DashboardPage() {
     else{
       setMushroomList(mushList)
     }
-  
   }
 
   const handleFilterModal = ()=>{
