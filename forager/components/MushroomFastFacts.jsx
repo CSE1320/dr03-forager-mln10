@@ -1,7 +1,5 @@
 import React from 'react';
-
 import '../styles/globals.css';
-
 const MushroomFastFacts = ({messageElement}) => {
     var hasIcon = false
     if(messageElement.icon!==''){

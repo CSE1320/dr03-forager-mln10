@@ -9,15 +9,15 @@ const MushroomList = ({isCompare, isDashboard, mushList}) => {
         cardRatio = "w-[27%] h-[27%]"
     }
     else if(doCompare){
-        cardRatio = "w-[40%] h-[45%]"
+        cardRatio = "w-[40%] h-[40%]"
     }
     return (
-        <div className='ml-4'>
-            <ul className="inline-flex flex-wrap w-full gap-x-6 justify-start"> 
+        <div className='flex justify-center items-center w-full  '>
+            <ul className=" w-full flex flex-wrap gap-x-6 justify-start  "> 
                 {
                     mushroomList.map((mushroom)=>{
                     return (
-                        <li key={mushroom.id} className={`${cardRatio} `  }>
+                        <li key={mushroom.id} className={`${cardRatio}`  }>
                             <Mushroom mushroom={mushroom} isCompared={isCompare} isSimilarMatch={doCompare} key={mushroom.id}   ></Mushroom>
                          </li>)
                     })

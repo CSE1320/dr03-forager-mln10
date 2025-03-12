@@ -1,7 +1,6 @@
 import React from 'react';
 import {FaTimes } from 'react-icons/fa'
 import FilterCategoryContainer from './FilterCategoryContainer';
-
 const FilterSettings = ({onClose, filterHandler, currentFilters}) => {
 
     return (

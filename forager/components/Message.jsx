@@ -1,17 +1,16 @@
 import React from 'react';
 import {FaTimes } from 'react-icons/fa'
 import '../styles/globals.css';
-
 const Message = ({messageElement, isModal, setModal}) => {
     var hasIcon = false
     if(messageElement.icon!==''){
         hasIcon=true
     }
-    var modalProp= isModal? "fixed inset-0 flex mr-4 ml-4 items-center justify-center z-50":"" 
+    var modalProp= isModal? "fixed inset-0 flex mr-4 ml-4 items-center justify-center backdrop-blur-sm  z-50":"" 
     return (
         <div className={`${modalProp} `}>
             <div className={`inline-flex mx-auto message rounded-3xl ${messageElement.color} text-sm w-full font-medium text-white px-4 py-4 mx-4`}>
-                <div className='flex flex-col '>
+                <div className='flex flex-col '> 
                     {isModal &&
                         <div className='ml-auto m-2'>
                             <FaTimes onClick={setModal} className="cursor-pointer text-gray-600 hover:text-gray-900" size={24} />

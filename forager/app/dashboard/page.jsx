@@ -77,7 +77,10 @@ export default function DashboardPage() {
         </div>
         <h3 className='font-bold text-xl mt-5 pl-4'>My Collection</h3>
         <PillList parameterList={currentFilters} filterHandler={filterHandler} filterList={currentFilters}  />
-        <MushroomList isDashboard={true} mushList={mushroomList}></MushroomList>
+       <div className ='flex justify-center ml-4 mr-4'>
+          <MushroomList isDashboard={true} mushList={mushroomList}></MushroomList>
+       </div>
+      
       </div>
       <NavBar />
       {isModal && <div className='z-100'> <FilterSettings onClose={handleFilterModal} filterHandler={filterHandler}  currentFilters={currentFilters} /></div>}

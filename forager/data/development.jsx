@@ -18,6 +18,13 @@ const percentageInfo = {
     color: "customGreen"
 };
 
+const warningMatchResult = {
+    header: "ATTENTION!",
+    icon: "/icons/icon_warning.svg",
+    message: "Our system can make mistakes! Remember to verify important information and use your own judgement to determine if any mushroom is safe. Be sure to use the “Report Error” button if you suspect a mistake.",
+    color: "customRed"
+};
+
 var yourMushroom = {
     id: 0,
     mushroomName: "Your Photo",
@@ -57,8 +64,8 @@ var mushroom2 = {
     id:2,
     mushroomName: "Paddy Straw",
     scientificName: "Amanita phalloides",
-    isEdible: false,
-    matchRate: "99%",
+    isEdible: true ,
+    matchRate: "90%",
     imgSrc: "assets/image 3.png",
     filters: ["Good for Broths", "Recent"],
     facts: {
@@ -66,7 +73,8 @@ var mushroom2 = {
         icon: "",
         capDiameter:"5-15cm",
         gillColor:"White",
-        color: "customFactColor"
+        color: "customFactColor",
+        capColor:"Yellow"
     }
 };
 var mushroom3 = {
@@ -74,7 +82,7 @@ var mushroom3 = {
     mushroomName: "Destroying angel",
     scientificName: "Amanita phalloides",
     isEdible: false,
-    matchRate: "99%",
+    matchRate: "80%",
     imgSrc: "assets/image 4.png",
     filters: ["Asia","Recent"],
     facts: {
@@ -82,7 +90,8 @@ var mushroom3 = {
         icon: "",
         capDiameter:"5-15cm",
         gillColor:"White",
-        color: "customFactColor"
+        color: "customFactColor",
+        capColor:"Yellow"
     }
 };
 var mushroom4 = {
@@ -90,7 +99,7 @@ var mushroom4 = {
     mushroomName: "False Death Cap",
     scientificName: "Amanita phalloides",
     isEdible: false,
-    matchRate: "99%",
+    matchRate: "70%",
     imgSrc: "assets/image 5.png",
     filters: ["Africa", "Recent"],
     facts: {
@@ -98,15 +107,16 @@ var mushroom4 = {
         icon: "",
         capDiameter:"5-15cm",
         gillColor:"White",
-        color: "customFactColor"
+        color: "customFactColor",
+        capColor:"Yellow"
     }
 };
 var mushroom5 = {
     id:5,
     mushroomName: "Puffball",
     scientificName: "Amanita phalloides",
-    isEdible: false,
-    matchRate: "99%",
+    isEdible: true,
+    matchRate: "60%",
     imgSrc: "assets/image 6.png",
     filters: ["Europe","Medicinal", "Recent"],
     facts: {
@@ -114,7 +124,8 @@ var mushroom5 = {
         icon: "",
         capDiameter:"5-15cm",
         gillColor:"White",
-        color: "customFactColor"
+        color: "customFactColor",
+        capColor:"Yellow"
     }
 };
 
@@ -146,10 +157,7 @@ const comparisonData = [
 ]
 
 const mushList = [mushroom1,mushroom2, mushroom3, mushroom4, mushroom5]
+const similarMatches= [mushroom2, mushroom3, mushroom4, mushroom5]
 const compareList = [yourMushroom,mushroom1]
 const filterOptionList= [filterObject1, filterObject2, filterObject3]
-// Two flavors of exporting:
-// export default dummyData; // Requires import dummyData from './data/development.js';
-
-// More than one export.
-export {warningMessage, dummyData, mushList, filterOptionList, percentageInfo, compareList, comparisonData}; // Requires import {warningMessage, dummyData} from './data/development.js';
+export {warningMessage, dummyData, mushList, similarMatches, filterOptionList, percentageInfo, warningMatchResult,compareList, comparisonData}; // Requires import {warningMessage, dummyData} from './data/development.js';

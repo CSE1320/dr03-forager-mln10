@@ -6,7 +6,7 @@ import Message from '@/components/Message';
 import { FaGreaterThan, FaCirclePlus } from "react-icons/fa6"
 import { FaCheckCircle } from "react-icons/fa";
 import '../../styles/globals.css';
-import {warningMessage,mushList,percentageInfo} from '@/data/development.jsx';
+import {warningMessage,mushList,percentageInfo, warningMatchResult, similarMatches} from '@/data/development.jsx';
 import Mushroom from '@/components/Mushroom';
 import { IoIosArrowForward } from "react-icons/io";
 import { useState } from 'react';
@@ -17,10 +17,12 @@ import { CiCircleInfo } from "react-icons/ci";
 export default function MushroomPage({mushroom = mushList[0]}) {
   const [isFavorite, setIsFavorite] = useState((mushroom.filters.includes("Favorites")))
   const[isModal, setModal] = useState(false)
-  
+  const[isWarningModal, setWarningModal] = useState(true)
+  const showWarningModal = ()=> {
+    setWarningModal(!isWarningModal)
+  }
   const showPercentInfoModal= ()=>{
     setModal(!isModal)
-
 }
   const addToFavorites = ()=>{
   mushroom.filters.push("Favorites")
@@ -29,7 +31,7 @@ export default function MushroomPage({mushroom = mushList[0]}) {
   return (
     <div className="page flex flex-col ">
       <TopNavBar title={'Match Results'} link={'/dashboard'}/>
-      <div className='flex justify-between m-1 ml-4 mr-4 pb-2 items-center'>
+      <div className='flex justify-between m-1 ml-4 mr-4  items-center'>
         <h6 className='text-sm'> Not what you expected?</h6>
         <div className='customRed text-white rounded-xl'>
           <div className='flex justify-between items-center space-x-1 p-2'>
@@ -38,29 +40,26 @@ export default function MushroomPage({mushroom = mushList[0]}) {
           </ div>
         </div>
       </div>
-      <div className='mb-4 ml-4 mr-4'>
+      <div className=' ml-4 mr-4 '>
         {!mushroom.isEdible &&(<>
           <Message  messageElement = {warningMessage}/>
         </>)}  
       </div>
-      <div className=' flex h-auto w-auto flex-col justify-center ml-4 mr-4'>
+      <div className=' flex h-full  flex-col justify-center ml-4 mr-4'>
         <Link href="/comparison">
           <div className='flex justify-end items-center'>
               <div className='pr-1'>Compare</div>
               <IoIosArrowForward/>
           </div>
         </Link>
-        {/* <div className=' justify-center w-full '> */}
-            <Mushroom  mushroom={mushroom} isCompared={true} isSimilarMatch={false} hideTitle={true}/>
-        {/* </div> */}
-
+        <Mushroom  mushroom={mushroom} isCompared={true} isSimilarMatch={false} hideTitle={true}/>
       </div>
       <div className='flex justify-between ml-4 mr-4 items-center'>
-        <div className='flex flex-col'>
+        <div className='flex p-1 flex-col'>
           <h2 className='font-bold mushroomTitle text-3xl'>{mushroom.mushroomName}</h2>
           <h5 className='italic mushroomScientificTitle text-xl'>{mushroom.scientificName}</h5>
         </div>
-        {/* cusotom Green color is hardcoded below, for some reason the icons dont detect css classes defined in global */}
+        {/* custom Green color is hardcoded below, for some reason the icons dont detect css classes defined in global */}
         {!isFavorite&& <FaCirclePlus onClick={addToFavorites}  size={48} color="#579076" />}
         {isFavorite&& <FaCheckCircle   size={48} color="#579076" />}
       </div>
@@ -73,16 +72,20 @@ export default function MushroomPage({mushroom = mushList[0]}) {
           <h2 className='font-bold mushroomTitle text-3xl '>Similar Matches</h2>
           <CiCircleInfo size={36} className='pl-2'onClick={showPercentInfoModal}/>
         </div>
-        <div className='flex justify-center p-2 ml-4 mr-4 mb-20 '>
-          <MushroomList  isCompare={false} isDashboard={false} mushList={mushList} />
+        <div className='flex justify-center  ml-12 mr-4 mb-20 '>
+          <MushroomList  isCompare={false} isDashboard={false} mushList={similarMatches} />
         </div>
       </div>
       <NavBar />
       {isModal&&(  
         <div className='mb-4 ml-4 mr-4'>
           <Message messageElement={percentageInfo} isModal={true} setModal={showPercentInfoModal}  />
-        </div> 
-          
+        </div>  
+      )}
+      {isWarningModal&&(  
+        <div className='mb-4 ml-4 w-full mr-4 '>
+          <Message messageElement={warningMatchResult} isModal={true} setModal={showWarningModal}  />
+        </div>  
       )}
     </div>
   );
