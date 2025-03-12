@@ -7,7 +7,7 @@ SID = 1001888297
 EMAIL = mxs8297@mavs.uta.edu
 SEMESTER = SPRING2025
 PROJECT=PROJ03
- 
+VIDEOLINK=https://youtube.com/shorts/yz-qKRH5OWw?feature=share
 
 ####### DO NOT EDIT BELOW THIS LINE!!! #########
 author: 
